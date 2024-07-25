@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemistifyCode</title>
+</head>
+<body>
+    <h1>Bienvenu sur DemistifyCode</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, tenetur. Autem natus commodi expedita inventore? Deleniti ipsam quo amet esse commodi illum accusamus corrupti, hic qui blanditiis nulla, voluptates porro.</p>
+
+    <h2>Notre Blog</h2>
+    <ul>
+        {% for post in posts%}
+            <li>
+                <a href="{% url 'show_post' post.slug%}">
+                    <h3>{{post.title}}</h3>
+                </a>
+                {%if post.description %}
+                    {{post.description}}
+                {%endif%}
+            </li>
+        {%endfor%}
+    </ul>
+
+    <h2>Visitez Notre chaine YT</h2>
+</body>
+</html>
