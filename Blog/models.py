@@ -1,7 +1,7 @@
 from datetime import datetime 
 from typing import Any
 from django.db import models
-from django.contrib.auth.models import User,AbstractUser, Permission, Group
+from django.contrib.auth.models import AbstractUser, Permission, Group
 from dmc.settings import AUTH_USER_MODEL
 
 
