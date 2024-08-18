@@ -129,6 +129,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=120, blank=True, null=True)
     published_date = models.DateField(default=datetime.now)
     category = models.ManyToManyField(to=Category, blank=True)
+    cover_image = models.ImageField(null=True, blank=True, upload_to='images/')
 
     def save(self, *args, **kwargs) -> None:
         self.slug = slugify(self.title)

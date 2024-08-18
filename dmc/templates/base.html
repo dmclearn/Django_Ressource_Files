@@ -1,0 +1,41 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css'%}">
+    {% block head%} 
+    
+    {%endblock%}
+</head>
+<body class="has-background-white" style="min-height: 100vh;">
+    <nav class="navbar is-primary">
+        <div class="navbar-brand">
+            <a href="{% url 'homepage'%}" class="my-3 mx-3"><img src="{% static 'assets/twitter.png'%}" width="90" alt=""></a>
+            <p class="title navbar-item"><a href="{% url 'homepage'%}">DemistifyCode</a></p>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a href="{% url 'homepage'%}" class="navbar-item">Home</a>
+                <a href="{% url 'blog'%}" class="navbar-item">Blog</a>
+                <a href="" class="navbar-item">Forum</a>
+            </div>
+        </div>
+    </nav>
+    {% block body%}
+    {%endblock body%}
+    <h2 class="title is-size-5 has-text-dark mt-6 ml-3">Suivez nous sur les reseaux</h2>
+    <div class="columns">
+        <div class="container is-3 column columns">
+            <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/youtube.png' %}" alt="" ></a>
+            <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/instagram.png'%}" alt="" ></a>
+            <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/tic-tac.png'%}" alt="" ></a>
+            <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/twitter.png'%}" alt="" ></a>
+        </div>
+        <span class="column"></span>
+    </div>
+    <div class="has-text-centered title is-size-6 has-text-dark py-3"><span> &copy; Copyright 2024</span></div>
+</body>
+</html>

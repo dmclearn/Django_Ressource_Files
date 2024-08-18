@@ -6,7 +6,7 @@ from Blog.models import Post
 
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-id')
     return render(request, "blog/index.html", context={"posts":posts})
 
 def post_show(request, slug:str):

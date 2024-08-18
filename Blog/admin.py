@@ -19,8 +19,15 @@ class PostAdmin(admin.ModelAdmin):
     
     def save_model(self, request: Any, obj: Any, form: Any, change: Any) -> None:
         user = request.user
-        if not obj.author:
-            obj.author = user
+        author = None
+        try:
+            author = obj.author
+            if not obj.author:
+                author = user
+        except:
+            author = user
+        finally:
+            obj.author = author
         return super().save_model(request, obj, form, change)
     
     def has_change_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:

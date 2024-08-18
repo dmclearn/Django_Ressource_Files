@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +8,12 @@
 </head>
 <body>
     <h1>{{post.title}}</h1>
+    {% if post.cover_image%}
+        <img src="{{post.cover_image.url}}" style="max-width:900px" />
+    {%else%}
+    <img src="{%static '/assets/default_image.jpg'%}" style="max-width:900px"/>
+    {%endif%}
+
     <p>{{post.content}}</p>
 </body>
 </html>

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.conf import  settings
+from django.conf.urls.static import static
 
 from dmc.views import index
 
@@ -24,4 +26,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="homepage"),
     path('blog/', include("Blog.urls"))
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
