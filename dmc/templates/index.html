@@ -6,14 +6,14 @@
 {% endblock%}
 
 {%block body%}
-    <h1 class="title has-text-black is-bold has-text-centered  is-uppercase my-6 is-size-3">Bienvenue sur DemistifyCode</h1>
-    <h2 class="subtitle has-text-centered is-size-5">Vous desirez apprendre la programmation a votre rythme</h2>
-    <div class="columns">
-        <div class="column is-2"></div>
-        <div class="is-8 column">
+    <h1 class="title has-text-black is-bold has-text-centered  is-uppercase my-4 my-6-tablet is-size-2 is-size-3-tablet">Bienvenue sur DemistifyCode</h1>
+    <h2 class=" mx-2 subtitle has-text-centered is-size-5-tablet is-size-4">Vous desirez apprendre la programmation a votre rythme</h2>
+    <div class="mx-2 columns">
+        <div class="column is-1-mobile is-2-tablet"></div>
+        <div class="  is-10-mobile is-8-tablet column is-size-5">
             <p class="has-text-centered">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, tenetur. Autem natus commodi expedita inventore? Deleniti ipsam quo amet esse commodi illum accusamus corrupti, hic qui blanditiis nulla, voluptates porro.</p>
         </div>
-        <div class="column is-2"></div>
+        <div class="column is-2-tablet is-1-mobile"></div>
     </div>
 
     <div class="section has-background-dark">
@@ -23,16 +23,16 @@
                 <li class="column is-multiline columns">
                     <div class="section has-text-centered">
 
-                        <h3 class="title is-size-6 "><a href="{% url 'show_post' post.slug%}">{{post.title | upper}}</a></h3>
+                        <h3 class="title is-size-6-tablet is-size-3 "><a href="{% url 'show_post' post.slug%}">{{post.title | upper}}</a></h3>
 
                         {% if post.cover_image%}
-                            <a class="is-inline-block my-4" href="{% url 'show_post' post.slug%}"><img src="{{post.cover_image.url}}" width="100" alt=""></a>
+                            <a class="is-inline-block my-4-tablet my-2" href="{% url 'show_post' post.slug%}"><img class="image is-256x256-tablet is-512x512" src="{{post.cover_image.url}}" alt=""></a>
                         {%else%}
-                            <a class="is-inline-block my-4" href="{% url 'show_post' post.slug%}"><img src="{% static '/assets/default_image.jpg'%}" width="100" alt=""></a>
+                            <a class="is-inline-block my-4-tablet my-2" href="{% url 'show_post' post.slug%}"><img class="image is-256x256-tablet is-512x512" src="{% static '/assets/default_image.jpg'%}" alt=""></a>
                         {%endif%}
 
                         {%if post.description %}
-                        <p class="subtitle">
+                        <p class="subtitle is-size-4 is-size-5-tablet">
                             {{post.description}}
                         </p>
                         {%endif%}

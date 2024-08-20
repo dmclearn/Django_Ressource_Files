@@ -15,8 +15,11 @@
         <div class="navbar-brand">
             <a href="{% url 'homepage'%}" class="my-3 mx-3"><img src="{% static 'assets/twitter.png'%}" width="90" alt=""></a>
             <p class="title navbar-item"><a href="{% url 'homepage'%}">DemistifyCode</a></p>
+            <div class="navbar-burger" id="burger">
+                <span></span><span></span><span></span><span></span>
+            </div>
         </div>
-        <div class="navbar-menu">
+        <div class="navbar-menu" id="nav-items">
             <div class="navbar-end">
                 <a href="{% url 'homepage'%}" class="navbar-item">Home</a>
                 <a href="{% url 'blog'%}" class="navbar-item">Blog</a>
@@ -28,14 +31,16 @@
     {%endblock body%}
     <h2 class="title is-size-5 has-text-dark mt-6 ml-3">Suivez nous sur les reseaux</h2>
     <div class="columns">
-        <div class="container is-3 column columns">
+        <div class="container is-3-tablet is-12-mobile column columns is-mobile">
             <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/youtube.png' %}" alt="" ></a>
             <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/instagram.png'%}" alt="" ></a>
             <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/tic-tac.png'%}" alt="" ></a>
             <a href="" class="column"><img class="image is-32x32" src="{% static 'assets/twitter.png'%}" alt="" ></a>
         </div>
-        <span class="column"></span>
+        <span class="column is-desktop"></span>
     </div>
     <div class="has-text-centered title is-size-6 has-text-dark py-3"><span> &copy; Copyright 2024</span></div>
+
+    <script src="{% static 'js/main.js'%}"></script>
 </body>
 </html>
