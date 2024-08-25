@@ -1,24 +1,33 @@
 {% extends 'base.html'%}
 {% load static%}
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block head %}
     <title>Blog-DMC</title>
-</head>
-<body>
-    <h1>Blog</h1>
-    <p>Nous avions {{nb_article}}</p>
-    {%for post in posts%}
-        <h2><a href="{% url 'show_post' post.slug%}">{{post.title}}</a></h2>
-        {% if post.cover_image%}
-            <a href="{% url 'show_post' post.slug%}"><img src="{{post.cover_image.url}}" width="100"/></a>
-        {%else%}
-            <a href="{% url 'show_post' post.slug%}"><img src="{% static '/assets/default_image.jpg'%}" width="100"/></a>
-        {%endif%}
-        <p>{{post.description}}</p>
-    {%endfor%}
-</body>
-</html>
+{% endblock head %}
+
+{% block body %}
+    <h1 class="title has-text-centered is-size-2 has-text-dark mt-4">Blog</h1>
+    <div class="columns">
+        <div class="column is-2"></div>
+        <div class="container column is-8 inline-block has-text-centered has-background-dark mt-6">
+            <p class="subtitle is-size-4">Nous avions {{nb_articles}} articles</p>
+            {%for post in posts%}
+                <div class="columns has-background-white mx-4 my-6">
+                    <div class="container column is-4">
+                        {% if post.cover_image%}
+                        <a href="{% url 'show_post' post.slug%}"><img class="image is-128x128" src="{{post.cover_image.url}}" width="100"/></a>
+                        {%else%}
+                        <a href="{% url 'show_post' post.slug%}"><img class="image is-128x128" src="{% static '/assets/default_image.jpg'%}" width="100"/></a>
+                        {%endif%}
+                    </div>
+                    <div class="container column is-8">
+                        <h2><a href="{% url 'show_post' post.slug%}">{{post.title}}</a></h2>
+                        <p>{{post.description}}</p>
+                        <p>{{post.author}} - {{post.published_date}}</p>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        <div class="column is-2"></div>
+    </div>
+
+{% endblock body %}

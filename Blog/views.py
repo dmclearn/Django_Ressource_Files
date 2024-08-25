@@ -7,7 +7,7 @@ from Blog.models import Post
 
 def index(request):
     posts = Post.objects.all().order_by('-id')
-    return render(request, "blog/index.html", context={"posts":posts})
+    return render(request, "blog/index.html", context={"posts":posts, 'nb_articles':len(posts)})
 
 def post_show(request, slug:str):
     post = Post.objects.get(slug=slug)
