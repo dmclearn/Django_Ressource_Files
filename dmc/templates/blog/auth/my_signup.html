@@ -1,0 +1,57 @@
+{% extends "blog/auth/base.html" %}
+
+{% block page_title %}Signup{% endblock page_title %}
+
+{% block body_start %}{% endblock body_start %}
+
+{% block forms_action %}{% url 'my_signup'%}{% endblock forms_action %}
+
+{% block forms%}
+    <div class="columns container">
+        <div class="column is-2"></div>
+        <div class="column is-8">
+            <h1 class="title my-6 is-size-3 has-background-white has-text-centered has-text-dark">Veuillez vous inscrire s'il vous plait</h1>
+            <div class="field">
+                <label class="label">{{form.fullname.label_tag}}</label>
+                <div class="control has-icons-left has-icons-right">
+                  {{form.fullname}}
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">{{form.username.label_tag}}</label>
+                <div class="control has-icons-left has-icons-right">
+                  {{form.username}}
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">{{form.password.label_tag}}</label>
+                <div class="control has-icons-left has-icons-right">
+                  {{form.password}}
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </div>
+            </div>
+        <div class="column is-2"></div>
+        <input class="button" type="submit" value="Envoyer">
+        <p class="subtitle is-size-6 has-text-centered"> deja un compte <a href="{% url 'my_login'%}">connecter vous par ici</a></p>
+    </div>
+{% endblock forms%}
+
+{% block body_end %}{% endblock body_end %}
+

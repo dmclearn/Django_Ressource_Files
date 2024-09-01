@@ -23,7 +23,11 @@
             <div class="navbar-end">
                 <a href="{% url 'homepage'%}" class="navbar-item">Home</a>
                 <a href="{% url 'blog'%}" class="navbar-item">Blog</a>
-                <a href="" class="navbar-item">Forum</a>
+                {% if request.user and request.user.username%}
+                    <a href="{% url 'my_logout' %}" class="navbar-item">{{request.user.username}} / Logout</a>
+                {% else %}
+                    <a href="{% url 'my_login' %}" class="navbar-item">Connexion</a>
+                {% endif %}
             </div>
         </div>
     </nav>

@@ -20,10 +20,14 @@ from django.urls import include
 from django.conf import  settings
 from django.conf.urls.static import static
 
+from Blog.views import my_login, my_logout, my_signup
 from dmc.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="homepage"),
-    path('blog/', include("Blog.urls"))
+    path('blog/', include("Blog.urls")),
+    path('auth/login', my_login, name="my_login"),
+    path('auth/signup', my_signup, name="my_signup"),
+    path('auth/logout', my_logout, name="my_logout")
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

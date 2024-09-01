@@ -1,0 +1,47 @@
+{% extends "blog/auth/base.html" %}
+
+{% block page_title %}Login{% endblock page_title %}
+
+{% block body_start %}{% endblock body_start %}
+
+{% block forms%}
+<div class="columns">
+    <div class="column is-2"></div>
+    <div class="column is-8 mt-6">
+        <h1 class="title my-6 is-size-3 has-background-white has-text-centered has-text-dark">Veuillez vous connecté s'il vous plait</h1>
+        <div class="field">
+            <label class="label">{{form.username.label_tag}}</label>
+            <div class="control has-icons-left has-icons-right">
+              {{form.username}}
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+        <div class="field">
+            <label class="label">{{form.password.label_tag}}</label>
+            <div class="control has-icons-left has-icons-right">
+              {{form.password}}
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+            <input type="submit" value="Envoyer" class="button">
+            <p class="subtitle is-size-6 has-text-centered"> pas de compte <a href="{% url 'my_signup'%}">creer en un ici</a></p>
+    </div>
+    <div class="column is-2"></div>
+</div>
+{% endblock forms%}
+
+{% block body_end %}{% endblock body_end %}
+
+{% block forms_action %}{% url 'my_login'%}{% endblock forms_action %}
+
+
