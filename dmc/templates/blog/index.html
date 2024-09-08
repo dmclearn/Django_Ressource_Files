@@ -1,5 +1,7 @@
 {% extends 'base.html'%}
 {% load static%}
+{% load timers_py%}
+
 {% block head %}
     <title>Blog-DMC</title>
 {% endblock head %}
@@ -22,7 +24,7 @@
                     <div class="container column is-8">
                         <h2><a href="{% url 'show_post' post.slug%}">{{post.title}}</a></h2>
                         <p>{{post.description}}</p>
-                        <p>{{post.author}} - {{post.published_date}}</p>
+                        <p>{{post.author}} - {% get_timer_ post.published_date %}</p>
                     </div>
                 </div>
                 {%endfor%}

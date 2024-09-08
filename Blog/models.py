@@ -127,7 +127,7 @@ class Post(models.Model):
     content = models.TextField()
     description = models.CharField(max_length=100, null=True, blank=True)
     slug = models.SlugField(max_length=120, blank=True, null=True)
-    published_date = models.DateField(default=datetime.now)
+    published_date = models.DateTimeField(default=datetime.now)
     category = models.ManyToManyField(to=Category, blank=True)
     cover_image = models.ImageField(null=True, blank=True, upload_to='images/')
 
@@ -138,4 +138,10 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title
     pass
+
+class Comment(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comment = models.TextField()
+    published_date = models.DateTimeField(default=datetime.now())
 
